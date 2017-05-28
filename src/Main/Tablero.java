@@ -436,7 +436,7 @@ public class Tablero extends javax.swing.JFrame {
     }
 
     private void cuadrado() {
-        int tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño del cuadeado:\n"
+        int tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño del cuadrado:\n"
                 + "(El cuadrado se pintara de izquierda a derecha y de arriba hacia abajo)."));
         int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
         int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
@@ -448,10 +448,10 @@ public class Tablero extends javax.swing.JFrame {
             s[x][u].setBackground(Color.BLACK);
         }
         for (int t = r; t < tamaño + r; t++) {
-            s[t - tamaño][y + (tamaño-1)].setBackground(Color.BLACK);
+            s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
         }
         for (int u = y; u < tamaño + y; u++) {
-            s[x+ (tamaño-1)][u].setBackground(Color.BLACK);
+            s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
         }
     }
 
@@ -502,24 +502,45 @@ public class Tablero extends javax.swing.JFrame {
 
         }
     }
-    
-    private void borrar(){
+
+    private void borrar() {
         int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada para el pixel a borrar en x:"));
         int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada para el pixel a borrar en y:"));
         s[x][y].setBackground(Color.WHITE);
     }
-    
-    private void limpiar(){
+
+    private void limpiar() {
         int opcion = JOptionPane.showConfirmDialog(null, "Realmente quieres borrar todo.", "Confirmar.", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            //0 Para si.
-            if (opcion == 0) {
-                for(int k =0;k<coordenadas.length;k++){
-                    for(int h=0;h<coordenadas.length;h++){
-                        s[k][h].setBackground(Color.WHITE);
-                    }
+        //0 Para si.
+        if (opcion == 0) {
+            for (int k = 0; k < coordenadas.length; k++) {
+                for (int h = 0; h < coordenadas.length; h++) {
+                    s[k][h].setBackground(Color.WHITE);
                 }
             }
-            //1 para no.
+        }
+        //1 para no.
+    }
+
+    private void rectangulo() {
+        int ancho = Integer.parseInt(JOptionPane.showInputDialog("Dame el largo del rectangulo:"));
+        int largo = Integer.parseInt(JOptionPane.showInputDialog("Dame el ancho del rectangulo:\n"
+                + "(El cuadrado se pintara de izquierda a derecha y de arriba hacia abajo)."));
+        int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
+        int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
+        int r;
+        for (r = x; r < ancho + x; r++) {
+            s[r][y].setBackground(Color.BLACK);
+        }
+        for (int u = y; u < largo + y; u++) {
+            s[x][u].setBackground(Color.BLACK);
+        }
+        for (int t = r; t < ancho + r; t++) {
+            s[t - ancho][y + (ancho - 2)].setBackground(Color.BLACK);
+        }
+        for (int u = y; u < largo + y; u++) {
+            s[x + (largo)][u].setBackground(Color.BLACK);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -949,6 +970,9 @@ public class Tablero extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 255));
@@ -2271,6 +2295,30 @@ public class Tablero extends javax.swing.JFrame {
                 }
             });
 
+            jButton9.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+            jButton9.setText("Colorear Rango");
+            jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    jButton9MouseClicked(evt);
+                }
+            });
+
+            jButton10.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+            jButton10.setText("Rellenar");
+            jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    jButton10MouseClicked(evt);
+                }
+            });
+
+            jButton13.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+            jButton13.setText("Circulo");
+            jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    jButton13MouseClicked(evt);
+                }
+            });
+
             javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
             getContentPane().setLayout(layout);
             layout.setHorizontalGroup(
@@ -3083,15 +3131,23 @@ public class Tablero extends javax.swing.JFrame {
                                 .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton12)
-                                .addComponent(jButton8))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jButton12)
+                                        .addComponent(jButton8)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(0, 0, Short.MAX_VALUE)))
                     .addContainerGap())
             );
@@ -3618,7 +3674,12 @@ public class Tablero extends javax.swing.JFrame {
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap())
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             );
 
             pack();
@@ -3641,7 +3702,7 @@ public class Tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        // TODO add your handling code here:
+        rectangulo();
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
@@ -3653,7 +3714,7 @@ public class Tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-       borrar();
+        borrar();
     }//GEN-LAST:event_jButton8MouseClicked
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
@@ -3663,6 +3724,18 @@ public class Tablero extends javax.swing.JFrame {
     private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
         limpiar();
     }//GEN-LAST:event_jButton12MouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9MouseClicked
+
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10MouseClicked
+
+    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13MouseClicked
 
     /**
      * @param args the command line arguments
@@ -3702,8 +3775,10 @@ public class Tablero extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -3711,6 +3786,7 @@ public class Tablero extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
