@@ -447,9 +447,11 @@ public class Tablero extends javax.swing.JFrame {
         for (int u = y; u < tamaño + y; u++) {
             s[x][u].setBackground(Color.BLACK);
         }
-        System.out.println(r);
-        for (int t = r; t < tamaño +r ; t++) {
-            s[t][y+r].setBackground(Color.BLACK);
+        for (int t = r; t < tamaño + r; t++) {
+            s[t - tamaño][y + (tamaño-1)].setBackground(Color.BLACK);
+        }
+        for (int u = y; u < tamaño + y; u++) {
+            s[x+ (tamaño-1)][u].setBackground(Color.BLACK);
         }
     }
 
