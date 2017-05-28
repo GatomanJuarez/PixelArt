@@ -525,7 +525,7 @@ public class Tablero extends javax.swing.JFrame {
     private void rectangulo() {
         int ancho = Integer.parseInt(JOptionPane.showInputDialog("Dame el largo del rectangulo:"));
         int largo = Integer.parseInt(JOptionPane.showInputDialog("Dame el ancho del rectangulo:\n"
-                + "(El cuadrado se pintara de izquierda a derecha y de arriba hacia abajo)."));
+                + "(El rectangulo se pintara de izquierda a derecha y de arriba hacia abajo)."));
         int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
         int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
         int r;
@@ -541,6 +541,34 @@ public class Tablero extends javax.swing.JFrame {
         for (int u = y; u < largo + y; u++) {
             s[x + (largo)][u].setBackground(Color.BLACK);
         }
+    }
+
+    private void diagonalInversa() {
+        int tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño de la diagonal:\n"
+                + "(La diagonal se pintara de izquierda a derecha y de arriba hacia abajo)."));
+        int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
+        int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
+        int conx = x, cony = y, cont = 0;
+        do {
+            s[conx][cony].setBackground(Color.BLACK);
+            cont++;
+            conx++;
+            cony++;
+        } while (cont <= tamaño - 1);
+    }
+    
+    private void diagonalNormal(){
+        int tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño de la diagonal:\n"
+                + "(La diagonal se pintara de izquierda a derecha y de arriba hacia abajo)."));
+        int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
+        int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
+        int conx = x, cony = y, cont = 0;
+        do {
+            s[conx][cony].setBackground(Color.BLACK);
+            cont++;
+            conx++;
+            cony--;
+        } while (cont <= tamaño - 1);
     }
 
     @SuppressWarnings("unchecked")
@@ -3706,11 +3734,11 @@ public class Tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-        // TODO add your handling code here:
+        diagonalNormal();
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
-        // TODO add your handling code here:
+        diagonalInversa();
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
