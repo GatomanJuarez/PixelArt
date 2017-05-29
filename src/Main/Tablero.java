@@ -6,17 +6,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
- *
- * @author jeobal
+ * @author Powered By GatomanJuarez
  */
 public class Tablero extends javax.swing.JFrame {
 
     int coordenadas[][] = new int[20][20];
     JTextField[][] s = new JTextField[20][20];
 
-    /**
-     * Creates new form Tablero
-     */
+    
     public Tablero() {
         initComponents();
         agregar();
@@ -447,6 +444,7 @@ public class Tablero extends javax.swing.JFrame {
         for (int u = y; u < tamaño + y; u++) {
             s[x][u].setBackground(Color.BLACK);
         }
+        //Abajo.
         for (int t = r; t < tamaño + r; t++) {
             s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
         }
@@ -556,8 +554,8 @@ public class Tablero extends javax.swing.JFrame {
             cony++;
         } while (cont <= tamaño - 1);
     }
-    
-    private void diagonalNormal(){
+
+    private void diagonalNormal() {
         int tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño de la diagonal:\n"
                 + "(La diagonal se pintara de izquierda a derecha y de arriba hacia abajo)."));
         int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
@@ -569,6 +567,249 @@ public class Tablero extends javax.swing.JFrame {
             conx++;
             cony--;
         } while (cont <= tamaño - 1);
+    }
+
+    private void circulo() {
+        int tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño del circulo (solo de 1, 3, 5, 6 u 11 de diametro.):\n"
+                + "(El circulo se pintara de izquierda a derecha y de arriba hacia abajo)."));
+        int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
+        int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
+        if (tamaño == 1) {
+            int r;
+            tamaño = 3;
+            for (r = x; r < tamaño + x; r++) {
+                s[r][y].setBackground(Color.BLACK);
+            }
+            for (int u = y; u < tamaño + y; u++) {
+                s[x][u].setBackground(Color.BLACK);
+            }
+            for (int t = r; t < tamaño + r; t++) {
+                s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+            }
+            for (int u = y; u < tamaño + y; u++) {
+                s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
+            }
+        } else if (tamaño == 3) {
+            int r;
+            tamaño = 5;
+            for (r = x; r < tamaño + x; r++) {
+                s[r][y].setBackground(Color.BLACK);
+            }
+            for (int u = y; u < tamaño + y; u++) {
+                s[x][u].setBackground(Color.BLACK);
+            }
+            for (int t = r; t < tamaño + r; t++) {
+                s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+            }
+            for (int u = y; u < tamaño + y; u++) {
+                s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
+            }
+            s[x][y].setBackground(Color.WHITE);
+            s[x + 4][y + 4].setBackground(Color.WHITE);
+            s[x][y + 4].setBackground(Color.WHITE);
+            s[x + 4][y].setBackground(Color.WHITE);
+        } else if (tamaño == 5) {
+            int r;
+            tamaño = 7;
+            for (r = x; r < tamaño + x; r++) {
+                s[r][y].setBackground(Color.BLACK);
+            }
+            for (int u = y; u < tamaño + y; u++) {
+                s[x][u].setBackground(Color.BLACK);
+            }
+            for (int t = r; t < tamaño + r; t++) {
+                s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+            }
+            for (int u = y; u < tamaño + y; u++) {
+                s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
+            }
+            s[x][y].setBackground(Color.WHITE);
+            s[x + 1][y].setBackground(Color.WHITE);
+            s[x][y + 1].setBackground(Color.WHITE);
+            s[x][y + 6].setBackground(Color.WHITE);
+            s[x][y + 5].setBackground(Color.WHITE);
+            s[x + 1][y + 6].setBackground(Color.WHITE);
+            s[x + 1][y + 1].setBackground(Color.BLACK);
+            s[x + 1][y + 5].setBackground(Color.BLACK);
+            s[x + 5][y].setBackground(Color.WHITE);
+            s[x + 6][y].setBackground(Color.WHITE);
+            s[x + 6][y + 1].setBackground(Color.WHITE);
+            s[x + 5][y + 1].setBackground(Color.BLACK);
+            s[x + 5][y + 5].setBackground(Color.BLACK);
+            s[x + 6][y + 5].setBackground(Color.WHITE);
+            s[x + 5][y + 6].setBackground(Color.WHITE);
+            s[x + 6][y + 6].setBackground(Color.WHITE);
+        } else if (tamaño == 6) {
+            int r;
+            tamaño = 8;
+            for (r = x; r < tamaño + x; r++) {
+                s[r][y].setBackground(Color.BLACK);
+            }
+            for (int u = y; u < tamaño + y; u++) {
+                s[x][u].setBackground(Color.BLACK);
+            }
+            for (int t = r; t < tamaño + r; t++) {
+                s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+            }
+            for (int u = y; u < tamaño + y; u++) {
+                s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
+            }
+            s[x][y].setBackground(Color.WHITE);
+            s[x + 1][y].setBackground(Color.WHITE);
+            s[x][y + 1].setBackground(Color.WHITE);
+            s[x][y + 6].setBackground(Color.WHITE);
+            s[x + 1][y + 1].setBackground(Color.BLACK);
+            s[x][y + 7].setBackground(Color.WHITE);
+            s[x + 7][y + 7].setBackground(Color.WHITE);
+            s[x + 1][y + 6].setBackground(Color.BLACK);
+            s[x + 1][y + 7].setBackground(Color.WHITE);
+            s[x + 6][y].setBackground(Color.WHITE);
+            s[x + 7][y].setBackground(Color.WHITE);
+            s[x + 6][y + 1].setBackground(Color.BLACK);
+            s[x + 8][y + 8].setBackground(Color.WHITE);
+            s[x + 7][y + 1].setBackground(Color.WHITE);
+            s[x + 7][y + 6].setBackground(Color.WHITE);
+            s[x + 6][y + 7].setBackground(Color.WHITE);
+            s[x + 6][y + 6].setBackground(Color.BLACK);
+        } else if (tamaño == 11) {
+            int r;
+            tamaño = 13;
+            for (r = x; r < tamaño + x; r++) {
+                s[r][y].setBackground(Color.BLACK);
+            }
+            for (int u = y; u < tamaño + y; u++) {
+                s[x][u].setBackground(Color.BLACK);
+            }
+            for (int t = r; t < tamaño + r; t++) {
+                s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+            }
+            for (int u = y; u < tamaño + y; u++) {
+                s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
+            }
+            s[x][y].setBackground(Color.WHITE);
+            s[x + 1][y].setBackground(Color.WHITE);
+            s[x][y + 1].setBackground(Color.WHITE);
+            s[x][y + 2].setBackground(Color.WHITE);
+            s[x][y + 3].setBackground(Color.WHITE);
+            s[x + 1][y].setBackground(Color.WHITE);
+            s[x + 2][y].setBackground(Color.WHITE);
+            s[x + 1][y + 1].setBackground(Color.WHITE);
+            s[x][y + 9].setBackground(Color.WHITE);
+            s[x][y + 10].setBackground(Color.WHITE);
+            s[x][y + 11].setBackground(Color.WHITE);
+            s[x][y + 12].setBackground(Color.WHITE);
+            s[x + 1][y + 2].setBackground(Color.BLACK);
+            s[x + 1][y + 3].setBackground(Color.BLACK);
+            s[x + 2][y + 1].setBackground(Color.BLACK);
+            s[x + 3][y + 1].setBackground(Color.BLACK);
+            s[x + 3][y].setBackground(Color.WHITE);
+            s[x + 1][y + 9].setBackground(Color.BLACK);
+            s[x + 1][y + 10].setBackground(Color.BLACK);
+            s[x + 2][y + 11].setBackground(Color.BLACK);
+            s[x + 3][y + 11].setBackground(Color.BLACK);
+            s[x + 1][y + 12].setBackground(Color.WHITE);
+            s[x + 2][y + 12].setBackground(Color.WHITE);
+            s[x + 3][y + 12].setBackground(Color.WHITE);
+            s[x + 9][y].setBackground(Color.WHITE);
+            s[x + 10][y].setBackground(Color.WHITE);
+            s[x + 11][y].setBackground(Color.WHITE);
+            s[x + 12][y].setBackground(Color.WHITE);
+            s[x + 9][y + 1].setBackground(Color.BLACK);
+            s[x + 10][y + 1].setBackground(Color.BLACK);
+            s[x + 11][y + 2].setBackground(Color.BLACK);
+            s[x + 11][y + 3].setBackground(Color.BLACK);
+            s[x + 12][y + 1].setBackground(Color.WHITE);
+            s[x + 12][y + 2].setBackground(Color.WHITE);
+            s[x + 12][y + 3].setBackground(Color.WHITE);
+            s[x + 12][y + 12].setBackground(Color.WHITE);
+            s[x + 12][y + 11].setBackground(Color.WHITE);
+            s[x + 12][y + 10].setBackground(Color.WHITE);
+            s[x + 12][y + 9].setBackground(Color.WHITE);
+            s[x + 11][y + 11].setBackground(Color.WHITE);
+            s[x + 11][y + 12].setBackground(Color.WHITE);
+            s[x + 9][y + 12].setBackground(Color.WHITE);
+            s[x + 10][y + 12].setBackground(Color.WHITE);
+            s[x + 11][y + 9].setBackground(Color.BLACK);
+            s[x + 11][y + 10].setBackground(Color.BLACK);
+            s[x + 9][y + 11].setBackground(Color.BLACK);
+            s[x + 10][y + 11].setBackground(Color.BLACK);
+
+        }
+    }
+
+    private void triangulo() {
+        int opcion = Integer.parseInt(JOptionPane.showInputDialog("¿Que orientacion sera el triangulo:\n"
+                + "1.- Abajo derecha.\n"
+                + "2.- Abajo izquierda.\n"
+                + "3.- Arriba derecha.\n"
+                + "4.- Arriba izquierda."));
+        int tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño del triangulo:\n"
+                + "(El triangulo se pintara de izquierda a derecha y de arriba hacia abajo)."));
+        int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
+        int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
+        if (opcion == 1) {
+            for (int r = x; r < tamaño + x + 1; r++) {
+                s[r][y].setBackground(Color.BLACK);
+            }
+            for (int r = y; r < tamaño + y; r++) {
+                s[x][r].setBackground(Color.BLACK);
+            }
+            int conx = x, cony = y + tamaño, cont = 0;
+            do {
+                s[conx][cony].setBackground(Color.BLACK);
+                cont++;
+                conx++;
+                cony--;
+            } while (cont <= tamaño - 1);
+        } else if (opcion == 2) {
+            for (int r = x; r < tamaño + x; r++) {
+                s[r][y].setBackground(Color.BLACK);
+            }
+            for (int u = y; u < tamaño + y; u++) {
+                s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
+            }
+            int conx = x, cony = y, cont = 0;
+            do {
+                s[conx][cony].setBackground(Color.BLACK);
+                cont++;
+                conx++;
+                cony++;
+            } while (cont <= tamaño - 1);
+        } else if (opcion == 3) {
+            int r;
+            for (r = y; r < tamaño + y; r++) {
+                s[x][r].setBackground(Color.BLACK);
+            }
+            for (int t = r; t < tamaño + r; t++) {
+                s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+            }
+            int conx = x, cony = y, cont = 0;
+            do {
+                s[conx][cony].setBackground(Color.BLACK);
+                cont++;
+                conx++;
+                cony++;
+            } while (cont <= tamaño - 1);
+        } else if (opcion == 4) {
+            int r;
+            for (r = y; r < tamaño + y; r++) {
+                //s[x][r].setBackground(Color.BLACK);
+            }
+            //Abajo.
+            for (int t = r - 1; t < tamaño + r; t++) {
+                s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+            }
+            for (int u = y; u < tamaño + y; u++) {
+                s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
+            }
+            int conx = x, cony = y + tamaño - 2, cont = 0;
+            do {
+                s[conx][cony].setBackground(Color.BLACK);
+                cont++;
+                conx++;
+                cony--;
+            } while (cont <= tamaño - 1);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -998,7 +1239,6 @@ public class Tablero extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
 
@@ -2323,14 +2563,6 @@ public class Tablero extends javax.swing.JFrame {
                 }
             });
 
-            jButton9.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-            jButton9.setText("Colorear Rango");
-            jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    jButton9MouseClicked(evt);
-                }
-            });
-
             jButton10.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
             jButton10.setText("Rellenar");
             jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2362,15 +2594,18 @@ public class Tablero extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton7)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton11)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton11)))))
                     .addGap(0, 45, Short.MAX_VALUE))
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -3170,12 +3405,7 @@ public class Tablero extends javax.swing.JFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jButton12)
                                         .addComponent(jButton8)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(0, 0, Short.MAX_VALUE)))
                     .addContainerGap())
             );
@@ -3704,7 +3934,6 @@ public class Tablero extends javax.swing.JFrame {
                         .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -3746,23 +3975,19 @@ public class Tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8MouseClicked
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
-        // TODO add your handling code here:
+        triangulo();
     }//GEN-LAST:event_jButton11MouseClicked
 
     private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
         limpiar();
     }//GEN-LAST:event_jButton12MouseClicked
 
-    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9MouseClicked
-
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10MouseClicked
 
     private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
-        // TODO add your handling code here:
+        circulo();
     }//GEN-LAST:event_jButton13MouseClicked
 
     /**
@@ -3779,16 +4004,24 @@ public class Tablero extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tablero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tablero.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tablero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tablero.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tablero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tablero.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tablero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tablero.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -3814,7 +4047,6 @@ public class Tablero extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
