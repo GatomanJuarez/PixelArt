@@ -13,7 +13,6 @@ public class Tablero extends javax.swing.JFrame {
     int coordenadas[][] = new int[20][20];
     JTextField[][] s = new JTextField[20][20];
 
-    
     public Tablero() {
         initComponents();
         agregar();
@@ -533,11 +532,12 @@ public class Tablero extends javax.swing.JFrame {
         for (int u = y; u < largo + y; u++) {
             s[x][u].setBackground(Color.BLACK);
         }
+        //Abajo
         for (int t = r; t < ancho + r; t++) {
             s[t - ancho][y + (ancho - 2)].setBackground(Color.BLACK);
         }
         for (int u = y; u < largo + y; u++) {
-            s[x + (largo)][u].setBackground(Color.BLACK);
+            s[x + (largo + 1)][u].setBackground(Color.BLACK);
         }
     }
 
@@ -776,7 +776,7 @@ public class Tablero extends javax.swing.JFrame {
                 cony++;
             } while (cont <= tamaño - 1);
         } else if (opcion == 3) {
-            int r;
+            int r = 0;
             for (r = y; r < tamaño + y; r++) {
                 s[x][r].setBackground(Color.BLACK);
             }
@@ -791,7 +791,7 @@ public class Tablero extends javax.swing.JFrame {
                 cony++;
             } while (cont <= tamaño - 1);
         } else if (opcion == 4) {
-            int r;
+            int r = 0;
             for (r = y; r < tamaño + y; r++) {
                 //s[x][r].setBackground(Color.BLACK);
             }
