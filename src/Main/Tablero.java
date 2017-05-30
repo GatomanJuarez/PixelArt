@@ -10,8 +10,145 @@ import javax.swing.JTextField;
  */
 public class Tablero extends javax.swing.JFrame {
 
-    int coordenadas[][] = new int[20][20];
-    JTextField[][] s = new JTextField[20][20];
+    private int coordenadas[][] = new int[20][20];
+    private JTextField[][] s = new JTextField[20][20];
+    private int tamaño, x, y, r, u, t, uu, opcion, k, h, ancho, largo, conx, cony, cont, o;
+
+    public int[][] getcoordenadas(int[][] coordenadas) {
+        return coordenadas;
+    }
+
+    public void setcoordenadas(int[][] coordenadas) {
+        this.coordenadas = coordenadas;
+    }
+
+    public int setx(int x) {
+        return x;
+    }
+
+    public void getx(int x) {
+        this.x = x;
+    }
+
+    public int sety(int y) {
+        return y;
+    }
+
+    public void getxy(int y) {
+        this.y = y;
+    }
+
+    public int setr(int r) {
+        return r;
+    }
+
+    public void getr(int r) {
+        this.r = r;
+    }
+
+    public int settamaño(int tamaño) {
+        return tamaño;
+    }
+
+    public void gettamaño(int tamaño) {
+        this.tamaño = tamaño;
+    }
+
+    public int setu(int u) {
+        return u;
+    }
+
+    public void getxu(int u) {
+        this.u = u;
+    }
+
+    public int setuu(int uu) {
+        return uu;
+    }
+
+    public void getxuu(int uu) {
+        this.uu = uu;
+    }
+
+    public int sett(int t) {
+        return t;
+    }
+
+    public void getxt(int t) {
+        this.t = t;
+    }
+
+    public int setk(int k) {
+        return k;
+    }
+
+    public void getxk(int k) {
+        this.k = k;
+    }
+
+    public int setopcion(int opcion) {
+        return opcion;
+    }
+
+    public void getxopcion(int opcion) {
+        this.t = t;
+    }
+
+    public int seth(int h) {
+        return h;
+    }
+
+    public void getxh(int h) {
+        this.h = h;
+    }
+
+    public int setancho(int ancho) {
+        return ancho;
+    }
+
+    public void getxancho(int ancho) {
+        this.ancho = ancho;
+    }
+
+    public int setlargo(int largo) {
+        return largo;
+    }
+
+    public void getxlargo(int largo) {
+        this.largo = largo;
+    }
+
+    public int setconx(int conx) {
+        return conx;
+    }
+
+    public void getxconx(int conx) {
+        this.conx = conx;
+    }
+
+    public int seto(int o) {
+        return o;
+    }
+
+    public void geto(int o) {
+        this.o = o;
+    }
+
+    public int setcony(int cony) {
+        return cony;
+    }
+
+    public void getxcony(int cony) {
+        this.cony = cony;
+    }
+
+    public int setcont(int cont) {
+        return cont;
+    }
+
+    public void getxcont(int cont) {
+        this.cont = cont;
+    }
 
     public Tablero() {
         initComponents();
@@ -421,49 +558,72 @@ public class Tablero extends javax.swing.JFrame {
         s[19][19] = jTextField400;
     }
 
+    private void vaciarVariables() {
+        tamaño = 0;
+        x = 0;
+        y = 0;
+        r = 0;
+        u = 0;
+        t = 0;
+        uu = 0;
+        opcion = 0;
+        k = 0;
+        h = 0;
+        ancho = 0;
+        largo = 0;
+        conx = 0;
+        cony = 0;
+        cont = 0;
+        o = 0;
+    }
+
     private void lineaH() {
-        int tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño de la linea:\n"
+        vaciarVariables();
+        tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño de la linea:\n"
                 + "(La linea se pintara de izquierda a derecha)."));
-        int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
-        int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
-        for (int r = x; r < tamaño + x; r++) {
+        x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
+        y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
+        for (r = x; r < tamaño + x; r++) {
             s[r][y].setBackground(Color.BLACK);
         }
     }
 
     private void cuadrado() {
-        int tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño del cuadrado:\n"
+        vaciarVariables();
+        tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño del cuadrado:\n"
                 + "(El cuadrado se pintara de izquierda a derecha y de arriba hacia abajo)."));
-        int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
-        int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
-        int r;
+        x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
+        y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
+
         for (r = x; r < tamaño + x; r++) {
             s[r][y].setBackground(Color.BLACK);
         }
-        for (int u = y; u < tamaño + y; u++) {
+        for (u = y; u < tamaño + y; u++) {
             s[x][u].setBackground(Color.BLACK);
         }
         //Abajo.
-        for (int t = r; t < tamaño + r; t++) {
+        for (t = r; t < tamaño + r; t++) {
             s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
         }
-        for (int u = y; u < tamaño + y; u++) {
-            s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
+        for (uu = y; uu < tamaño + y; uu++) {
+            s[x + (tamaño - 1)][uu].setBackground(Color.BLACK);
         }
     }
 
     private void lineaV() {
-        int tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño de la linea:\n"
+        vaciarVariables();
+        tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño de la linea:\n"
                 + "(La linea se pintara de arriva hacia abajo)."));
-        int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
-        int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
-        for (int r = y; r < tamaño + y; r++) {
+        x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
+        y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
+        for (r = y; r < tamaño + y; r++) {
             s[x][r].setBackground(Color.BLACK);
         }
     }
 
     private void color() {
-        int opcion = Integer.parseInt(JOptionPane.showInputDialog("Elige color:\n"
+        vaciarVariables();
+        opcion = Integer.parseInt(JOptionPane.showInputDialog("Elige color:\n"
                 + "1.- Negro.\n"
                 + "2.- Rojo.\n"
                 + "3.- Gris.\n"
@@ -471,8 +631,8 @@ public class Tablero extends javax.swing.JFrame {
                 + "5.- Azul.\n"
                 + "6.- Verde.\n"
                 + "7.- Blanco.\n"));
-        int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada en x:"));
-        int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada en y:"));
+        x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada en x:"));
+        y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada en y:"));
 
         switch (opcion) {
             case 1:
@@ -501,17 +661,19 @@ public class Tablero extends javax.swing.JFrame {
     }
 
     private void borrar() {
-        int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada para el pixel a borrar en x:"));
-        int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada para el pixel a borrar en y:"));
+        vaciarVariables();
+        x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada para el pixel a borrar en x:"));
+        y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada para el pixel a borrar en y:"));
         s[x][y].setBackground(Color.WHITE);
     }
 
     private void limpiar() {
-        int opcion = JOptionPane.showConfirmDialog(null, "Realmente quieres borrar todo.", "Confirmar.", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        vaciarVariables();
+        opcion = JOptionPane.showConfirmDialog(null, "Realmente quieres borrar todo.", "Confirmar.", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         //0 Para si.
         if (opcion == 0) {
-            for (int k = 0; k < coordenadas.length; k++) {
-                for (int h = 0; h < coordenadas.length; h++) {
+            for (k = 0; k < coordenadas.length; k++) {
+                for (h = 0; h < coordenadas.length; h++) {
                     s[k][h].setBackground(Color.WHITE);
                 }
             }
@@ -520,33 +682,36 @@ public class Tablero extends javax.swing.JFrame {
     }
 
     private void rectangulo() {
-        int ancho = Integer.parseInt(JOptionPane.showInputDialog("Dame el largo del rectangulo:"));
-        int largo = Integer.parseInt(JOptionPane.showInputDialog("Dame el ancho del rectangulo:\n"
+        vaciarVariables();
+        ancho = Integer.parseInt(JOptionPane.showInputDialog("Dame el largo del rectangulo:"));
+        largo = Integer.parseInt(JOptionPane.showInputDialog("Dame el ancho del rectangulo:\n"
                 + "(El rectangulo se pintara de izquierda a derecha y de arriba hacia abajo)."));
-        int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
-        int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
-        int r;
+        x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
+        y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
         for (r = x; r < ancho + x; r++) {
             s[r][y].setBackground(Color.BLACK);
         }
-        for (int u = y; u < largo + y; u++) {
+        for (u = y; u < largo + y; u++) {
             s[x][u].setBackground(Color.BLACK);
         }
         //Abajo
-        for (int t = r; t < ancho + r; t++) {
+        for (t = r; t < ancho + r; t++) {
             s[t - ancho][y + (ancho - 2)].setBackground(Color.BLACK);
         }
-        for (int u = y; u < largo + y; u++) {
-            s[x + (largo + 1)][u].setBackground(Color.BLACK);
+        for (uu = y; uu < largo + y; uu++) {
+            s[x + (largo + 1)][uu].setBackground(Color.BLACK);
         }
     }
 
     private void diagonalInversa() {
-        int tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño de la diagonal:\n"
+        vaciarVariables();
+        tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño de la diagonal:\n"
                 + "(La diagonal se pintara de izquierda a derecha y de arriba hacia abajo)."));
-        int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
-        int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
-        int conx = x, cony = y, cont = 0;
+        x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
+        y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
+        conx = x;
+        cony = y;
+        cont = 0;
         do {
             s[conx][cony].setBackground(Color.BLACK);
             cont++;
@@ -556,11 +721,14 @@ public class Tablero extends javax.swing.JFrame {
     }
 
     private void diagonalNormal() {
-        int tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño de la diagonal:\n"
-                + "(La diagonal se pintara de izquierda a derecha y de arriba hacia abajo)."));
-        int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
-        int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
-        int conx = x, cony = y, cont = 0;
+        vaciarVariables();
+        tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño de la diagonal:\n"
+                + "(La diagonal se pintara de izquierda a derecha y de abajo hacia arriba)."));
+        x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
+        y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
+        conx = x;
+        cony = y;
+        cont = 0;
         do {
             s[conx][cony].setBackground(Color.BLACK);
             cont++;
@@ -570,58 +738,58 @@ public class Tablero extends javax.swing.JFrame {
     }
 
     private void circulo() {
-        int tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño del circulo (solo de 1, 3, 5, 6 u 11 de diametro.):\n"
+        vaciarVariables();
+        tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño del circulo (solo de 1, 3, 5, 6 u 11 de diametro.):\n"
                 + "(El circulo se pintara de izquierda a derecha y de arriba hacia abajo)."));
-        int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
-        int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
+        x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
+        y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
         if (tamaño == 1) {
             int r;
             tamaño = 3;
             for (r = x; r < tamaño + x; r++) {
                 s[r][y].setBackground(Color.BLACK);
             }
-            for (int u = y; u < tamaño + y; u++) {
+            for (u = y; u < tamaño + y; u++) {
                 s[x][u].setBackground(Color.BLACK);
             }
-            for (int t = r; t < tamaño + r; t++) {
+            for (t = r; t < tamaño + r; t++) {
                 s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
             }
-            for (int u = y; u < tamaño + y; u++) {
-                s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
+            for (uu = y; uu < tamaño + y; uu++) {
+                s[x + (tamaño - 1)][uu].setBackground(Color.BLACK);
             }
         } else if (tamaño == 3) {
-            int r;
+
             tamaño = 5;
             for (r = x; r < tamaño + x; r++) {
                 s[r][y].setBackground(Color.BLACK);
             }
-            for (int u = y; u < tamaño + y; u++) {
+            for (u = y; u < tamaño + y; u++) {
                 s[x][u].setBackground(Color.BLACK);
             }
-            for (int t = r; t < tamaño + r; t++) {
+            for (t = r; t < tamaño + r; t++) {
                 s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
             }
-            for (int u = y; u < tamaño + y; u++) {
-                s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
+            for (uu = y; uu < tamaño + y; uu++) {
+                s[x + (tamaño - 1)][uu].setBackground(Color.BLACK);
             }
             s[x][y].setBackground(Color.WHITE);
             s[x + 4][y + 4].setBackground(Color.WHITE);
             s[x][y + 4].setBackground(Color.WHITE);
             s[x + 4][y].setBackground(Color.WHITE);
         } else if (tamaño == 5) {
-            int r;
             tamaño = 7;
             for (r = x; r < tamaño + x; r++) {
                 s[r][y].setBackground(Color.BLACK);
             }
-            for (int u = y; u < tamaño + y; u++) {
+            for (u = y; u < tamaño + y; u++) {
                 s[x][u].setBackground(Color.BLACK);
             }
-            for (int t = r; t < tamaño + r; t++) {
+            for (t = r; t < tamaño + r; t++) {
                 s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
             }
-            for (int u = y; u < tamaño + y; u++) {
-                s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
+            for (uu = y; uu < tamaño + y; uu++) {
+                s[x + (tamaño - 1)][uu].setBackground(Color.BLACK);
             }
             s[x][y].setBackground(Color.WHITE);
             s[x + 1][y].setBackground(Color.WHITE);
@@ -640,19 +808,18 @@ public class Tablero extends javax.swing.JFrame {
             s[x + 5][y + 6].setBackground(Color.WHITE);
             s[x + 6][y + 6].setBackground(Color.WHITE);
         } else if (tamaño == 6) {
-            int r;
             tamaño = 8;
             for (r = x; r < tamaño + x; r++) {
                 s[r][y].setBackground(Color.BLACK);
             }
-            for (int u = y; u < tamaño + y; u++) {
+            for (u = y; u < tamaño + y; u++) {
                 s[x][u].setBackground(Color.BLACK);
             }
-            for (int t = r; t < tamaño + r; t++) {
+            for (t = r; t < tamaño + r; t++) {
                 s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
             }
-            for (int u = y; u < tamaño + y; u++) {
-                s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
+            for (uu = y; uu < tamaño + y; uu++) {
+                s[x + (tamaño - 1)][uu].setBackground(Color.BLACK);
             }
             s[x][y].setBackground(Color.WHITE);
             s[x + 1][y].setBackground(Color.WHITE);
@@ -672,19 +839,19 @@ public class Tablero extends javax.swing.JFrame {
             s[x + 6][y + 7].setBackground(Color.WHITE);
             s[x + 6][y + 6].setBackground(Color.BLACK);
         } else if (tamaño == 11) {
-            int r;
+
             tamaño = 13;
             for (r = x; r < tamaño + x; r++) {
                 s[r][y].setBackground(Color.BLACK);
             }
-            for (int u = y; u < tamaño + y; u++) {
+            for (u = y; u < tamaño + y; u++) {
                 s[x][u].setBackground(Color.BLACK);
             }
-            for (int t = r; t < tamaño + r; t++) {
+            for (t = r; t < tamaño + r; t++) {
                 s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
             }
-            for (int u = y; u < tamaño + y; u++) {
-                s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
+            for (uu = y; uu < tamaño + y; uu++) {
+                s[x + (tamaño - 1)][uu].setBackground(Color.BLACK);
             }
             s[x][y].setBackground(Color.WHITE);
             s[x + 1][y].setBackground(Color.WHITE);
@@ -737,24 +904,27 @@ public class Tablero extends javax.swing.JFrame {
         }
     }
 
-    private void triangulo() {
-        int opcion = Integer.parseInt(JOptionPane.showInputDialog("¿Que orientacion sera el triangulo:\n"
+    private void trianguloRecto() {
+        vaciarVariables();
+        opcion = Integer.parseInt(JOptionPane.showInputDialog("¿Que orientacion sera el triangulo:\n"
                 + "1.- Abajo derecha.\n"
                 + "2.- Abajo izquierda.\n"
                 + "3.- Arriba derecha.\n"
                 + "4.- Arriba izquierda."));
-        int tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño del triangulo:\n"
+        tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño del triangulo:\n"
                 + "(El triangulo se pintara de izquierda a derecha y de arriba hacia abajo)."));
-        int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
-        int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
+        x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
+        y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
         if (opcion == 1) {
-            for (int r = x; r < tamaño + x + 1; r++) {
+            for (r = x; r < tamaño + x + 1; r++) {
                 s[r][y].setBackground(Color.BLACK);
             }
-            for (int r = y; r < tamaño + y; r++) {
-                s[x][r].setBackground(Color.BLACK);
+            for (o = y; o < tamaño + y; o++) {
+                s[x][o].setBackground(Color.BLACK);
             }
-            int conx = x, cony = y + tamaño, cont = 0;
+            conx = x;
+            cony = y + tamaño;
+            cont = 0;
             do {
                 s[conx][cony].setBackground(Color.BLACK);
                 cont++;
@@ -762,13 +932,15 @@ public class Tablero extends javax.swing.JFrame {
                 cony--;
             } while (cont <= tamaño - 1);
         } else if (opcion == 2) {
-            for (int r = x; r < tamaño + x; r++) {
+            for (r = x; r < tamaño + x; r++) {
                 s[r][y].setBackground(Color.BLACK);
             }
-            for (int u = y; u < tamaño + y; u++) {
+            for (u = y; u < tamaño + y; u++) {
                 s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
             }
-            int conx = x, cony = y, cont = 0;
+            conx = x;
+            cony = y;
+            cont = 0;
             do {
                 s[conx][cony].setBackground(Color.BLACK);
                 cont++;
@@ -776,14 +948,15 @@ public class Tablero extends javax.swing.JFrame {
                 cony++;
             } while (cont <= tamaño - 1);
         } else if (opcion == 3) {
-            int r = 0;
             for (r = y; r < tamaño + y; r++) {
                 s[x][r].setBackground(Color.BLACK);
             }
-            for (int t = r; t < tamaño + r; t++) {
+            for (t = r; t < tamaño + r; t++) {
                 s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
             }
-            int conx = x, cony = y, cont = 0;
+            conx = x;
+            cony = y;
+            cont = 0;
             do {
                 s[conx][cony].setBackground(Color.BLACK);
                 cont++;
@@ -791,24 +964,64 @@ public class Tablero extends javax.swing.JFrame {
                 cony++;
             } while (cont <= tamaño - 1);
         } else if (opcion == 4) {
-            int r = 0;
             for (r = y; r < tamaño + y; r++) {
                 //s[x][r].setBackground(Color.BLACK);
             }
             //Abajo.
-            for (int t = r - 1; t < tamaño + r; t++) {
+            for (t = r - 1; t < tamaño + r; t++) {
                 s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
             }
-            for (int u = y; u < tamaño + y; u++) {
+            for (u = y; u < tamaño + y; u++) {
                 s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
             }
-            int conx = x, cony = y + tamaño - 2, cont = 0;
+            conx = x;
+            cony = y + tamaño - 2;
+            cont = 0;
             do {
                 s[conx][cony].setBackground(Color.BLACK);
                 cont++;
                 conx++;
                 cony--;
             } while (cont <= tamaño - 1);
+        }
+    }
+
+    private void trianguloEquilatero() {
+        int opcion = Integer.parseInt(JOptionPane.showInputDialog("¿Que orientacion sera el triangulo:\n"
+                + "1.- Abajo.\n"
+                + "2.- Abajo izquierda.\n"
+                + "3.- Arriba derecha.\n"
+                + "4.- Arriba izquierda."));
+        int tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño del triangulo:\n"
+                + "(El triangulo se pintara de izquierda a derecha y de arriba hacia abajo)."));
+        int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
+        int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
+
+        if (opcion == 1) {
+            for (int r = x; r < tamaño + x; r++) {
+                s[r][y].setBackground(Color.BLACK);
+            }
+            //Inversa.
+            int conx = x + tamaño, cony = y, cont = 2;
+            do {
+                s[conx][cony].setBackground(Color.BLACK);
+                cont++;
+                conx++;
+                cony++;
+            } while (cont <= tamaño - 1);
+            conx = 0;
+            cony = 0;
+            cont = 0;
+            conx = x;
+            cony = y - 1;
+            cont = 2;
+            do {
+                s[conx][cony].setBackground(Color.BLACK);
+                cont++;
+                conx++;
+                cony--;
+            } while (cont <= tamaño - 1);
+
         }
     }
 
@@ -3975,7 +4188,15 @@ public class Tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8MouseClicked
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
-        triangulo();
+        /**
+         * int opcion = Integer.parseInt(JOptionPane.showInputDialog("¿Que
+         * triangulo quieres?:\n" + "1.- Triangulo recto.\n" + "2.- Triangulo
+         * equilatero.\n")); if (opcion == 1) {
+         */
+        trianguloRecto();
+        /*} else if (opcion == 2) {
+            trianguloEquilatero();
+        }*/
     }//GEN-LAST:event_jButton11MouseClicked
 
     private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
