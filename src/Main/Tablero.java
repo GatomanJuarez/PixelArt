@@ -838,8 +838,11 @@ public class Tablero extends javax.swing.JFrame {
         //1 para no.
     }
 
-    private void rectangulo() {
+        private void rectangulo() {
         vaciarVariables();
+        ancho = Integer.parseInt(JOptionPane.showInputDialog("Dame el largo del rectangulo:"));
+        largo = Integer.parseInt(JOptionPane.showInputDialog("Dame el ancho del rectangulo:\n"
+                + "(El rectangulo se pintara de izquierda a derecha y de arriba hacia abajo)."));
         opcion = Integer.parseInt(JOptionPane.showInputDialog("Elige color:\n"
                 + "1.- Negro.\n"
                 + "2.- Rojo.\n"
@@ -848,11 +851,9 @@ public class Tablero extends javax.swing.JFrame {
                 + "5.- Azul.\n"
                 + "6.- Verde.\n"
                 + "7.- Blanco.\n"));
-        ancho = Integer.parseInt(JOptionPane.showInputDialog("Dame el largo del rectangulo:"));
-        largo = Integer.parseInt(JOptionPane.showInputDialog("Dame el ancho del rectangulo:\n"
-                + "(El rectangulo se pintara de izquierda a derecha y de arriba hacia abajo)."));
         x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
         y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
+        //Arriba
         for (r = x; r < ancho + x; r++) {
             switch (opcion) {
                 case 1:
@@ -878,7 +879,8 @@ public class Tablero extends javax.swing.JFrame {
                     break;
             }
         }
-        for (u = y; u < largo + y; u++) {
+        //Izquierda
+        for (u = y; u < largo; u++) {
             switch (opcion) {
                 case 1:
                     s[x][u].setBackground(Color.BLACK);
@@ -904,53 +906,54 @@ public class Tablero extends javax.swing.JFrame {
             }
         }
         //Abajo
-        for (t = r; t < ancho + r; t++) {
+        for (t = 0; t < ancho; t++) {
             switch (opcion) {
                 case 1:
-                    s[t - ancho][y + (ancho - 2)].setBackground(Color.BLACK);
+                    s[t][y + (largo - 1)].setBackground(Color.BLACK);
                     break;
                 case 2:
-                    s[t - ancho][y + (ancho - 2)].setBackground(Color.RED);
+                    s[t][y + (largo - 1)].setBackground(Color.RED);
                     break;
                 case 3:
-                    s[t - ancho][y + (ancho - 2)].setBackground(Color.GRAY);
+                    s[t][y + (largo - 1)].setBackground(Color.GRAY);
                     break;
                 case 4:
-                    s[t - ancho][y + (ancho - 2)].setBackground(Color.YELLOW);
+                    s[t][y + (largo - 1)].setBackground(Color.YELLOW);
                     break;
                 case 5:
-                    s[t - ancho][y + (ancho - 2)].setBackground(Color.BLUE);
+                    s[t][y + (largo - 1)].setBackground(Color.BLUE);
                     break;
                 case 6:
-                    s[t - ancho][y + (ancho - 2)].setBackground(Color.GREEN);
+                    s[t][y + (largo - 1)].setBackground(Color.GREEN);
                     break;
                 case 7:
-                    s[t - ancho][y + (ancho - 2)].setBackground(Color.WHITE);
+                    s[t][y + (largo - 1)].setBackground(Color.WHITE);
                     break;
             }
         }
-        for (uu = y - 1; uu < largo + y; uu++) {
+        //Derecha.
+        for (int u =  y; u < largo; u++) {
             switch (opcion) {
                 case 1:
-                    s[x + (largo + 1)][uu].setBackground(Color.BLACK);
+                    s[x + ancho][u].setBackground(Color.BLACK);
                     break;
                 case 2:
-                    s[x + (largo + 1)][uu].setBackground(Color.RED);
+                    s[x + ancho][u].setBackground(Color.RED);
                     break;
                 case 3:
-                    s[x + (largo + 1)][uu].setBackground(Color.GRAY);
+                    s[x + ancho][u].setBackground(Color.GRAY);
                     break;
                 case 4:
-                    s[x + (largo + 1)][uu].setBackground(Color.YELLOW);
+                    s[x + ancho][u].setBackground(Color.YELLOW);
                     break;
                 case 5:
-                    s[x + (largo + 1)][uu].setBackground(Color.BLUE);
+                    s[x + ancho][u].setBackground(Color.BLUE);
                     break;
                 case 6:
-                    s[x + (largo + 1)][uu].setBackground(Color.GREEN);
+                    s[x + ancho][u].setBackground(Color.GREEN);
                     break;
                 case 7:
-                    s[x + (largo + 1)][uu].setBackground(Color.WHITE);
+                    s[x + ancho][uu].setBackground(Color.WHITE);
                     break;
             }
         }
@@ -2022,6 +2025,210 @@ public class Tablero extends javax.swing.JFrame {
                 conx++;
                 cony--;
             } while (cont <= tamaño - 1);
+        }
+    }
+
+    private void rellenar() {
+        vaciarVariables();
+        //para seleccionar figura 
+        opcion = Integer.parseInt(JOptionPane.showInputDialog("Elige figura:\n"
+                + "1.- Cuadrado.\n"
+                + "2.- Triangulo.\n"
+                + "3.- Circulo.\n"
+                + "4.- Rectangulo"));
+        opcionColor = Integer.parseInt(JOptionPane.showInputDialog("Elige color:\n"
+                + "1.- Negro.\n"
+                + "2.- Rojo.\n"
+                + "3.- Gris.\n"
+                + "4.- Amarillo.\n"
+                + "5.- Azul.\n"
+                + "6.- Verde.\n"
+                + "7.- Blanco.\n"));
+        // para rellenar el cuadrado 
+        if (opcion == 1) {
+            tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño del cuadrado:\n"));
+            x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
+            y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
+            //linea arriba
+            switch (opcionColor) {
+                case 1:
+                    for (r = x; r < tamaño + x - 1; r++) {
+                        s[r][y].setBackground(Color.BLACK);
+
+                        for (int z = y; z < tamaño + y - 1; z++) {
+                            s[r][z].setBackground(Color.BLACK);
+                        }
+                    }
+                    break;
+
+                case 2:
+                    for (r = x; r < tamaño + x - 1; r++) {
+                        s[r][y].setBackground(Color.RED);
+
+                        for (int z = y; z < tamaño + y - 1; z++) {
+                            s[r][z].setBackground(Color.RED);
+                        }
+                    }
+                    break;
+                case 3:
+                    for (r = x; r < tamaño + x - 1; r++) {
+                        s[r][y].setBackground(Color.GRAY);
+
+                        for (int z = y; z < tamaño + y - 1; z++) {
+                            s[r][z].setBackground(Color.GRAY);
+                        }
+                    }
+                    break;
+                case 4:
+                    for (r = x; r < tamaño + x - 1; r++) {
+                        s[r][y].setBackground(Color.YELLOW);
+
+                        for (int z = y; z < tamaño + y - 1; z++) {
+                            s[r][z].setBackground(Color.YELLOW);
+                        }
+                    }
+                    break;
+                case 5:
+                    for (r = x; r < tamaño + x - 1; r++) {
+                        s[r][y].setBackground(Color.BLUE);
+
+                        for (int z = y; z < tamaño + y - 1; z++) {
+                            s[r][z].setBackground(Color.BLUE);
+                        }
+                    }
+                    break;
+                case 6:
+                    for (r = x; r < tamaño + x - 1; r++) {
+                        s[r][y].setBackground(Color.GREEN);
+
+                        for (int z = y; z < tamaño + y - 1; z++) {
+                            s[r][z].setBackground(Color.GREEN);
+                        }
+                    }
+                    break;
+                case 7:
+                    for (r = x; r < tamaño + x - 1; r++) {
+                        s[r][y].setBackground(Color.WHITE);
+
+                        for (int z = y; z < tamaño + y - 1; z++) {
+                            s[r][z].setBackground(Color.WHITE);
+                        }
+                    }
+                    break;
+            }
+
+        } //para rellenar rectangulo 
+        else if (opcion == 4) {
+            ancho = Integer.parseInt(JOptionPane.showInputDialog("Dame el largo del rectangulo:"));
+            largo = Integer.parseInt(JOptionPane.showInputDialog("Dame el ancho del rectangulo:\n"
+                    + "(El rectangulo se pintara de izquierda a derecha y de arriba hacia abajo)."));
+            x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
+            y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
+            switch (opcionColor) {
+                case 1:
+                    for (r = x; r < ancho + x - 1; r++) {
+                        s[r][y].setBackground(Color.BLACK);
+                        for (int z = y; z < largo + y; z++) {
+                            s[r][z].setBackground(Color.BLACK);
+                        }
+                    }
+                    for (u = y; u < largo + y; u++) {
+                        s[x][u].setBackground(Color.BLACK);
+                        for (int z = y; z < largo + y; z++) {
+                            s[r][z].setBackground(Color.BLACK);
+                        }
+                    }
+                    break;
+                case 2:
+                    for (r = x; r < ancho + x - 1; r++) {
+                        s[r][y].setBackground(Color.RED);
+                        for (int z = y; z < largo + y; z++) {
+                            s[r][z].setBackground(Color.RED);
+                        }
+                    }
+                    for (u = y; u < largo + y; u++) {
+                        s[x][u].setBackground(Color.RED);
+                        for (int z = y; z < largo + y; z++) {
+                            s[r][z].setBackground(Color.RED);
+                        }
+                    }
+                    break;
+                case 3:
+                    for (r = x; r < ancho + x - 1; r++) {
+                        s[r][y].setBackground(Color.GRAY);
+                        for (int z = y; z < largo + y; z++) {
+                            s[r][z].setBackground(Color.GRAY);
+                        }
+                    }
+                    for (u = y; u < largo + y; u++) {
+                        s[x][u].setBackground(Color.GRAY);
+                        for (int z = y; z < largo + y; z++) {
+                            s[r][z].setBackground(Color.GRAY);
+                        }
+                    }
+                    break;
+
+                case 4:
+                    for (r = x; r < ancho + x - 1; r++) {
+                        s[r][y].setBackground(Color.YELLOW);
+                        for (int z = y; z < largo + y; z++) {
+                            s[r][z].setBackground(Color.YELLOW);
+                        }
+                    }
+                    for (u = y; u < largo + y; u++) {
+                        s[x][u].setBackground(Color.YELLOW);
+                        for (int z = y; z < largo + y; z++) {
+                            s[r][z].setBackground(Color.YELLOW);
+                        }
+                    }
+                    break;
+
+                case 5:
+                    for (r = x; r < ancho + x - 1; r++) {
+                        s[r][y].setBackground(Color.BLUE);
+                        for (int z = y; z < largo + y; z++) {
+                            s[r][z].setBackground(Color.BLUE);
+                        }
+                    }
+                    for (u = y; u < largo + y; u++) {
+                        s[x][u].setBackground(Color.BLUE);
+                        for (int z = y; z < largo + y; z++) {
+                            s[r][z].setBackground(Color.BLUE);
+                        }
+                    }
+                    break;
+
+                case 6:
+                    for (r = x; r < ancho + x - 1; r++) {
+                        s[r][y].setBackground(Color.GREEN);
+                        for (int z = y; z < largo + y; z++) {
+                            s[r][z].setBackground(Color.GREEN);
+                        }
+                    }
+                    for (u = y; u < largo + y; u++) {
+                        s[x][u].setBackground(Color.GREEN);
+                        for (int z = y; z < largo + y; z++) {
+                            s[r][z].setBackground(Color.GREEN);
+                        }
+                    }
+                    break;
+
+                case 7:
+                    for (r = x - 1; r < ancho + x - 1; r++) {
+                        s[r][y].setBackground(Color.WHITE);
+                        for (int z = y; z < largo + y; z++) {
+                            s[r][z].setBackground(Color.WHITE);
+                        }
+                    }
+                    for (u = y; u < largo + y; u++) {
+                        s[x][u].setBackground(Color.WHITE);
+                        for (int z = y; z < largo + y; z++) {
+                            s[r][z].setBackground(Color.WHITE);
+                        }
+                    }
+                    break;
+
+            }
         }
     }
 
@@ -5204,7 +5411,7 @@ public class Tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12MouseClicked
 
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
-        // TODO add your handling code here:
+        rellenar();
     }//GEN-LAST:event_jButton10MouseClicked
 
     private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
