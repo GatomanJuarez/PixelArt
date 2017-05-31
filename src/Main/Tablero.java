@@ -12,7 +12,7 @@ public class Tablero extends javax.swing.JFrame {
 
     private int coordenadas[][] = new int[20][20];
     private JTextField[][] s = new JTextField[20][20];
-    private int tamaño, x, y, r, u, t, uu, opcion, k, h, ancho, largo, conx, cony, cont, o;
+    private int tamaño, x, y, r, u, t, uu, opcion, k, h, ancho, largo, conx, cony, cont, o, opcionColor;
 
     public int[][] getcoordenadas(int[][] coordenadas) {
         return coordenadas;
@@ -561,6 +561,7 @@ public class Tablero extends javax.swing.JFrame {
     private void vaciarVariables() {
         tamaño = 0;
         x = 0;
+        opcionColor = 0;
         y = 0;
         r = 0;
         u = 0;
@@ -579,45 +580,202 @@ public class Tablero extends javax.swing.JFrame {
 
     private void lineaH() {
         vaciarVariables();
+        opcion = Integer.parseInt(JOptionPane.showInputDialog("Elige color:\n"
+                + "1.- Negro.\n"
+                + "2.- Rojo.\n"
+                + "3.- Gris.\n"
+                + "4.- Amarillo.\n"
+                + "5.- Azul.\n"
+                + "6.- Verde.\n"
+                + "7.- Blanco.\n"));
         tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño de la linea:\n"
                 + "(La linea se pintara de izquierda a derecha)."));
         x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
         y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
         for (r = x; r < tamaño + x; r++) {
-            s[r][y].setBackground(Color.BLACK);
+            switch (opcion) {
+                case 1:
+                    s[r][y].setBackground(Color.BLACK);
+                    break;
+                case 2:
+                    s[r][y].setBackground(Color.RED);
+                    break;
+                case 3:
+                    s[r][y].setBackground(Color.GRAY);
+                    break;
+                case 4:
+                    s[r][y].setBackground(Color.YELLOW);
+                    break;
+                case 5:
+                    s[r][y].setBackground(Color.BLUE);
+                    break;
+                case 6:
+                    s[r][y].setBackground(Color.GREEN);
+                    break;
+                case 7:
+                    s[r][y].setBackground(Color.WHITE);
+                    break;
+            }
         }
+
     }
 
     private void cuadrado() {
         vaciarVariables();
+        opcion = Integer.parseInt(JOptionPane.showInputDialog("Elige color:\n"
+                + "1.- Negro.\n"
+                + "2.- Rojo.\n"
+                + "3.- Gris.\n"
+                + "4.- Amarillo.\n"
+                + "5.- Azul.\n"
+                + "6.- Verde.\n"
+                + "7.- Blanco.\n"));
         tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño del cuadrado:\n"
                 + "(El cuadrado se pintara de izquierda a derecha y de arriba hacia abajo)."));
         x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
         y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
 
         for (r = x; r < tamaño + x; r++) {
-            s[r][y].setBackground(Color.BLACK);
+            switch (opcion) {
+                case 1:
+                    s[r][y].setBackground(Color.BLACK);
+                    break;
+                case 2:
+                    s[r][y].setBackground(Color.RED);
+                    break;
+                case 3:
+                    s[r][y].setBackground(Color.GRAY);
+                    break;
+                case 4:
+                    s[r][y].setBackground(Color.YELLOW);
+                    break;
+                case 5:
+                    s[r][y].setBackground(Color.BLUE);
+                    break;
+                case 6:
+                    s[r][y].setBackground(Color.GREEN);
+                    break;
+                case 7:
+                    s[r][y].setBackground(Color.WHITE);
+                    break;
+            }
         }
         for (u = y; u < tamaño + y; u++) {
-            s[x][u].setBackground(Color.BLACK);
+            switch (opcion) {
+                case 1:
+                    s[x][u].setBackground(Color.BLACK);
+                    break;
+                case 2:
+                    s[x][u].setBackground(Color.RED);
+                    break;
+                case 3:
+                    s[x][u].setBackground(Color.GRAY);
+                    break;
+                case 4:
+                    s[x][u].setBackground(Color.YELLOW);
+                    break;
+                case 5:
+                    s[x][u].setBackground(Color.BLUE);
+                    break;
+                case 6:
+                    s[x][u].setBackground(Color.GREEN);
+                    break;
+                case 7:
+                    s[x][u].setBackground(Color.WHITE);
+                    break;
+            }
         }
         //Abajo.
         for (t = r; t < tamaño + r; t++) {
-            s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+            switch (opcion) {
+                case 1:
+                    s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+                    break;
+                case 2:
+                    s[t - tamaño][y + (tamaño - 1)].setBackground(Color.RED);
+                    break;
+                case 3:
+                    s[t - tamaño][y + (tamaño - 1)].setBackground(Color.GRAY);
+                    break;
+                case 4:
+                    s[t - tamaño][y + (tamaño - 1)].setBackground(Color.YELLOW);
+                    break;
+                case 5:
+                    s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLUE);
+                    break;
+                case 6:
+                    s[t - tamaño][y + (tamaño - 1)].setBackground(Color.GREEN);
+                    break;
+                case 7:
+                    s[t - tamaño][y + (tamaño - 1)].setBackground(Color.WHITE);
+                    break;
+            }
         }
         for (uu = y; uu < tamaño + y; uu++) {
-            s[x + (tamaño - 1)][uu].setBackground(Color.BLACK);
+            switch (opcion) {
+                case 1:
+                    s[x + (tamaño - 1)][uu].setBackground(Color.BLACK);
+                    break;
+                case 2:
+                    s[x + (tamaño - 1)][uu].setBackground(Color.RED);
+                    break;
+                case 3:
+                    s[x + (tamaño - 1)][uu].setBackground(Color.GRAY);
+                    break;
+                case 4:
+                    s[x + (tamaño - 1)][uu].setBackground(Color.YELLOW);
+                    break;
+                case 5:
+                    s[x + (tamaño - 1)][uu].setBackground(Color.BLUE);
+                    break;
+                case 6:
+                    s[x + (tamaño - 1)][uu].setBackground(Color.GREEN);
+                    break;
+                case 7:
+                    s[x + (tamaño - 1)][uu].setBackground(Color.WHITE);
+                    break;
+            }
         }
     }
 
     private void lineaV() {
         vaciarVariables();
+        opcion = Integer.parseInt(JOptionPane.showInputDialog("Elige color:\n"
+                + "1.- Negro.\n"
+                + "2.- Rojo.\n"
+                + "3.- Gris.\n"
+                + "4.- Amarillo.\n"
+                + "5.- Azul.\n"
+                + "6.- Verde.\n"
+                + "7.- Blanco.\n"));
         tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño de la linea:\n"
                 + "(La linea se pintara de arriva hacia abajo)."));
         x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
         y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
         for (r = y; r < tamaño + y; r++) {
-            s[x][r].setBackground(Color.BLACK);
+            switch (opcion) {
+                case 1:
+                    s[x][r].setBackground(Color.BLACK);
+                    break;
+                case 2:
+                    s[x][r].setBackground(Color.RED);
+                    break;
+                case 3:
+                    s[x][r].setBackground(Color.GRAY);
+                    break;
+                case 4:
+                    s[x][r].setBackground(Color.YELLOW);
+                    break;
+                case 5:
+                    s[x][r].setBackground(Color.BLUE);
+                    break;
+                case 6:
+                    s[x][r].setBackground(Color.GREEN);
+                    break;
+                case 7:
+                    s[x][r].setBackground(Color.WHITE);
+                    break;
+            }
         }
     }
 
@@ -656,7 +814,6 @@ public class Tablero extends javax.swing.JFrame {
             case 7:
                 s[x][y].setBackground(Color.WHITE);
                 break;
-
         }
     }
 
@@ -683,28 +840,132 @@ public class Tablero extends javax.swing.JFrame {
 
     private void rectangulo() {
         vaciarVariables();
+        opcion = Integer.parseInt(JOptionPane.showInputDialog("Elige color:\n"
+                + "1.- Negro.\n"
+                + "2.- Rojo.\n"
+                + "3.- Gris.\n"
+                + "4.- Amarillo.\n"
+                + "5.- Azul.\n"
+                + "6.- Verde.\n"
+                + "7.- Blanco.\n"));
         ancho = Integer.parseInt(JOptionPane.showInputDialog("Dame el largo del rectangulo:"));
         largo = Integer.parseInt(JOptionPane.showInputDialog("Dame el ancho del rectangulo:\n"
                 + "(El rectangulo se pintara de izquierda a derecha y de arriba hacia abajo)."));
         x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
         y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
         for (r = x; r < ancho + x; r++) {
-            s[r][y].setBackground(Color.BLACK);
+            switch (opcion) {
+                case 1:
+                    s[r][y].setBackground(Color.BLACK);
+                    break;
+                case 2:
+                    s[r][y].setBackground(Color.RED);
+                    break;
+                case 3:
+                    s[r][y].setBackground(Color.GRAY);
+                    break;
+                case 4:
+                    s[r][y].setBackground(Color.YELLOW);
+                    break;
+                case 5:
+                    s[r][y].setBackground(Color.BLUE);
+                    break;
+                case 6:
+                    s[r][y].setBackground(Color.GREEN);
+                    break;
+                case 7:
+                    s[r][y].setBackground(Color.WHITE);
+                    break;
+            }
         }
         for (u = y; u < largo + y; u++) {
-            s[x][u].setBackground(Color.BLACK);
+            switch (opcion) {
+                case 1:
+                    s[x][u].setBackground(Color.BLACK);
+                    break;
+                case 2:
+                    s[x][u].setBackground(Color.RED);
+                    break;
+                case 3:
+                    s[x][u].setBackground(Color.GRAY);
+                    break;
+                case 4:
+                    s[x][u].setBackground(Color.YELLOW);
+                    break;
+                case 5:
+                    s[x][u].setBackground(Color.BLUE);
+                    break;
+                case 6:
+                    s[x][u].setBackground(Color.GREEN);
+                    break;
+                case 7:
+                    s[x][u].setBackground(Color.WHITE);
+                    break;
+            }
         }
         //Abajo
         for (t = r; t < ancho + r; t++) {
-            s[t - ancho][y + (ancho - 2)].setBackground(Color.BLACK);
+            switch (opcion) {
+                case 1:
+                    s[t - ancho][y + (ancho - 2)].setBackground(Color.BLACK);
+                    break;
+                case 2:
+                    s[t - ancho][y + (ancho - 2)].setBackground(Color.RED);
+                    break;
+                case 3:
+                    s[t - ancho][y + (ancho - 2)].setBackground(Color.GRAY);
+                    break;
+                case 4:
+                    s[t - ancho][y + (ancho - 2)].setBackground(Color.YELLOW);
+                    break;
+                case 5:
+                    s[t - ancho][y + (ancho - 2)].setBackground(Color.BLUE);
+                    break;
+                case 6:
+                    s[t - ancho][y + (ancho - 2)].setBackground(Color.GREEN);
+                    break;
+                case 7:
+                    s[t - ancho][y + (ancho - 2)].setBackground(Color.WHITE);
+                    break;
+            }
         }
-        for (uu = y; uu < largo + y; uu++) {
-            s[x + (largo + 1)][uu].setBackground(Color.BLACK);
+        for (uu = y - 1; uu < largo + y; uu++) {
+            switch (opcion) {
+                case 1:
+                    s[x + (largo + 1)][uu].setBackground(Color.BLACK);
+                    break;
+                case 2:
+                    s[x + (largo + 1)][uu].setBackground(Color.RED);
+                    break;
+                case 3:
+                    s[x + (largo + 1)][uu].setBackground(Color.GRAY);
+                    break;
+                case 4:
+                    s[x + (largo + 1)][uu].setBackground(Color.YELLOW);
+                    break;
+                case 5:
+                    s[x + (largo + 1)][uu].setBackground(Color.BLUE);
+                    break;
+                case 6:
+                    s[x + (largo + 1)][uu].setBackground(Color.GREEN);
+                    break;
+                case 7:
+                    s[x + (largo + 1)][uu].setBackground(Color.WHITE);
+                    break;
+            }
         }
     }
 
     private void diagonalInversa() {
         vaciarVariables();
+        opcion = Integer.parseInt(JOptionPane.showInputDialog("Elige color:\n"
+                + "1.- Negro.\n"
+                + "2.- Rojo.\n"
+                + "3.- Gris.\n"
+                + "4.- Amarillo.\n"
+                + "5.- Azul.\n"
+                + "6.- Verde.\n"
+                + "7.- Blanco.\n"));
         tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño de la diagonal:\n"
                 + "(La diagonal se pintara de izquierda a derecha y de arriba hacia abajo)."));
         x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
@@ -713,7 +974,29 @@ public class Tablero extends javax.swing.JFrame {
         cony = y;
         cont = 0;
         do {
-            s[conx][cony].setBackground(Color.BLACK);
+            switch (opcion) {
+                case 1:
+                    s[conx][cony].setBackground(Color.BLACK);
+                    break;
+                case 2:
+                    s[conx][cony].setBackground(Color.RED);
+                    break;
+                case 3:
+                    s[conx][cony].setBackground(Color.GRAY);
+                    break;
+                case 4:
+                    s[conx][cony].setBackground(Color.YELLOW);
+                    break;
+                case 5:
+                    s[conx][cony].setBackground(Color.BLUE);
+                    break;
+                case 6:
+                    s[conx][cony].setBackground(Color.GREEN);
+                    break;
+                case 7:
+                    s[conx][cony].setBackground(Color.WHITE);
+                    break;
+            }
             cont++;
             conx++;
             cony++;
@@ -722,6 +1005,14 @@ public class Tablero extends javax.swing.JFrame {
 
     private void diagonalNormal() {
         vaciarVariables();
+        opcion = Integer.parseInt(JOptionPane.showInputDialog("Elige color:\n"
+                + "1.- Negro.\n"
+                + "2.- Rojo.\n"
+                + "3.- Gris.\n"
+                + "4.- Amarillo.\n"
+                + "5.- Azul.\n"
+                + "6.- Verde.\n"
+                + "7.- Blanco.\n"));
         tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño de la diagonal:\n"
                 + "(La diagonal se pintara de izquierda a derecha y de abajo hacia arriba)."));
         x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
@@ -730,7 +1021,29 @@ public class Tablero extends javax.swing.JFrame {
         cony = y;
         cont = 0;
         do {
-            s[conx][cony].setBackground(Color.BLACK);
+            switch (opcion) {
+                case 1:
+                    s[conx][cony].setBackground(Color.BLACK);
+                    break;
+                case 2:
+                    s[conx][cony].setBackground(Color.RED);
+                    break;
+                case 3:
+                    s[conx][cony].setBackground(Color.GRAY);
+                    break;
+                case 4:
+                    s[conx][cony].setBackground(Color.YELLOW);
+                    break;
+                case 5:
+                    s[conx][cony].setBackground(Color.BLUE);
+                    break;
+                case 6:
+                    s[conx][cony].setBackground(Color.GREEN);
+                    break;
+                case 7:
+                    s[conx][cony].setBackground(Color.WHITE);
+                    break;
+            }
             cont++;
             conx++;
             cony--;
@@ -739,6 +1052,14 @@ public class Tablero extends javax.swing.JFrame {
 
     private void circulo() {
         vaciarVariables();
+        opcion = Integer.parseInt(JOptionPane.showInputDialog("Elige color:\n"
+                + "1.- Negro.\n"
+                + "2.- Rojo.\n"
+                + "3.- Gris.\n"
+                + "4.- Amarillo.\n"
+                + "5.- Azul.\n"
+                + "6.- Verde.\n"
+                + "7.- Blanco.\n"));
         tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño del circulo (solo de 1, 3, 5, 6 u 11 de diametro.):\n"
                 + "(El circulo se pintara de izquierda a derecha y de arriba hacia abajo)."));
         x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
@@ -747,31 +1068,209 @@ public class Tablero extends javax.swing.JFrame {
             int r;
             tamaño = 3;
             for (r = x; r < tamaño + x; r++) {
-                s[r][y].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[r][y].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[r][y].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[r][y].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[r][y].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[r][y].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[r][y].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[r][y].setBackground(Color.WHITE);
+                        break;
+                }
             }
             for (u = y; u < tamaño + y; u++) {
                 s[x][u].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[x][u].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[x][u].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[x][u].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[x][u].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[x][u].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[x][u].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[x][u].setBackground(Color.WHITE);
+                        break;
+                }
             }
             for (t = r; t < tamaño + r; t++) {
-                s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.WHITE);
+                        break;
+                }
             }
             for (uu = y; uu < tamaño + y; uu++) {
-                s[x + (tamaño - 1)][uu].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.WHITE);
+                        break;
+                }
             }
         } else if (tamaño == 3) {
 
             tamaño = 5;
             for (r = x; r < tamaño + x; r++) {
-                s[r][y].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[r][y].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[r][y].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[r][y].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[r][y].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[r][y].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[r][y].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[r][y].setBackground(Color.WHITE);
+                        break;
+                }
             }
             for (u = y; u < tamaño + y; u++) {
                 s[x][u].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[x][u].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[x][u].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[x][u].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[x][u].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[x][u].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[x][u].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[x][u].setBackground(Color.WHITE);
+                        break;
+                }
             }
             for (t = r; t < tamaño + r; t++) {
-                s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.WHITE);
+                        break;
+                }
             }
             for (uu = y; uu < tamaño + y; uu++) {
-                s[x + (tamaño - 1)][uu].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.WHITE);
+                        break;
+                }
             }
             s[x][y].setBackground(Color.WHITE);
             s[x + 4][y + 4].setBackground(Color.WHITE);
@@ -780,16 +1279,105 @@ public class Tablero extends javax.swing.JFrame {
         } else if (tamaño == 5) {
             tamaño = 7;
             for (r = x; r < tamaño + x; r++) {
-                s[r][y].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[r][y].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[r][y].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[r][y].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[r][y].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[r][y].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[r][y].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[r][y].setBackground(Color.WHITE);
+                        break;
+                }
             }
             for (u = y; u < tamaño + y; u++) {
                 s[x][u].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[x][u].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[x][u].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[x][u].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[x][u].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[x][u].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[x][u].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[x][u].setBackground(Color.WHITE);
+                        break;
+                }
             }
             for (t = r; t < tamaño + r; t++) {
-                s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.WHITE);
+                        break;
+                }
             }
             for (uu = y; uu < tamaño + y; uu++) {
-                s[x + (tamaño - 1)][uu].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.WHITE);
+                        break;
+                }
             }
             s[x][y].setBackground(Color.WHITE);
             s[x + 1][y].setBackground(Color.WHITE);
@@ -810,16 +1398,105 @@ public class Tablero extends javax.swing.JFrame {
         } else if (tamaño == 6) {
             tamaño = 8;
             for (r = x; r < tamaño + x; r++) {
-                s[r][y].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[r][y].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[r][y].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[r][y].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[r][y].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[r][y].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[r][y].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[r][y].setBackground(Color.WHITE);
+                        break;
+                }
             }
             for (u = y; u < tamaño + y; u++) {
                 s[x][u].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[x][u].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[x][u].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[x][u].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[x][u].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[x][u].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[x][u].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[x][u].setBackground(Color.WHITE);
+                        break;
+                }
             }
             for (t = r; t < tamaño + r; t++) {
-                s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.WHITE);
+                        break;
+                }
             }
             for (uu = y; uu < tamaño + y; uu++) {
-                s[x + (tamaño - 1)][uu].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.WHITE);
+                        break;
+                }
             }
             s[x][y].setBackground(Color.WHITE);
             s[x + 1][y].setBackground(Color.WHITE);
@@ -842,16 +1519,105 @@ public class Tablero extends javax.swing.JFrame {
 
             tamaño = 13;
             for (r = x; r < tamaño + x; r++) {
-                s[r][y].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[r][y].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[r][y].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[r][y].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[r][y].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[r][y].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[r][y].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[r][y].setBackground(Color.WHITE);
+                        break;
+                }
             }
             for (u = y; u < tamaño + y; u++) {
                 s[x][u].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[x][u].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[x][u].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[x][u].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[x][u].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[x][u].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[x][u].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[x][u].setBackground(Color.WHITE);
+                        break;
+                }
             }
             for (t = r; t < tamaño + r; t++) {
-                s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.WHITE);
+                        break;
+                }
             }
             for (uu = y; uu < tamaño + y; uu++) {
-                s[x + (tamaño - 1)][uu].setBackground(Color.BLACK);
+                switch (opcion) {
+                    case 1:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[x + (tamaño - 1)][uu].setBackground(Color.WHITE);
+                        break;
+                }
             }
             s[x][y].setBackground(Color.WHITE);
             s[x + 1][y].setBackground(Color.WHITE);
@@ -906,6 +1672,14 @@ public class Tablero extends javax.swing.JFrame {
 
     private void trianguloRecto() {
         vaciarVariables();
+        opcionColor = Integer.parseInt(JOptionPane.showInputDialog("Elige color:\n"
+                + "1.- Negro.\n"
+                + "2.- Rojo.\n"
+                + "3.- Gris.\n"
+                + "4.- Amarillo.\n"
+                + "5.- Azul.\n"
+                + "6.- Verde.\n"
+                + "7.- Blanco.\n"));
         opcion = Integer.parseInt(JOptionPane.showInputDialog("¿Que orientacion sera el triangulo:\n"
                 + "1.- Abajo derecha.\n"
                 + "2.- Abajo izquierda.\n"
@@ -917,111 +1691,337 @@ public class Tablero extends javax.swing.JFrame {
         y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
         if (opcion == 1) {
             for (r = x; r < tamaño + x + 1; r++) {
-                s[r][y].setBackground(Color.BLACK);
+                switch (opcionColor) {
+                    case 1:
+                        s[r][y].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[r][y].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[r][y].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[r][y].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[r][y].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[r][y].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[r][y].setBackground(Color.WHITE);
+                        break;
+                }
             }
             for (o = y; o < tamaño + y; o++) {
-                s[x][o].setBackground(Color.BLACK);
+                switch (opcionColor) {
+                    case 1:
+                        s[x][o].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[x][o].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[x][o].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[x][o].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[x][o].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[x][o].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[x][o].setBackground(Color.WHITE);
+                        break;
+                }
             }
             conx = x;
             cony = y + tamaño;
             cont = 0;
             do {
-                s[conx][cony].setBackground(Color.BLACK);
+                switch (opcionColor) {
+                    case 1:
+                        s[conx][cony].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[conx][cony].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[conx][cony].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[conx][cony].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[conx][cony].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[conx][cony].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[conx][cony].setBackground(Color.WHITE);
+                        break;
+                }
                 cont++;
                 conx++;
                 cony--;
             } while (cont <= tamaño - 1);
         } else if (opcion == 2) {
             for (r = x; r < tamaño + x; r++) {
-                s[r][y].setBackground(Color.BLACK);
+                switch (opcionColor) {
+                    case 1:
+                        s[r][y].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[r][y].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[r][y].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[r][y].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[r][y].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[r][y].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[r][y].setBackground(Color.WHITE);
+                        break;
+                }
             }
             for (u = y; u < tamaño + y; u++) {
-                s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
+                switch (opcionColor) {
+                    case 1:
+                        s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[x + (tamaño - 1)][u].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[x + (tamaño - 1)][u].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[x + (tamaño - 1)][u].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[x + (tamaño - 1)][u].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[x + (tamaño - 1)][u].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[x + (tamaño - 1)][u].setBackground(Color.WHITE);
+                        break;
+                }
             }
             conx = x;
             cony = y;
             cont = 0;
             do {
-                s[conx][cony].setBackground(Color.BLACK);
+                switch (opcionColor) {
+                    case 1:
+                        s[conx][cony].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[conx][cony].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[conx][cony].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[conx][cony].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[conx][cony].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[conx][cony].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[conx][cony].setBackground(Color.WHITE);
+                        break;
+                }
                 cont++;
                 conx++;
                 cony++;
             } while (cont <= tamaño - 1);
         } else if (opcion == 3) {
             for (r = y; r < tamaño + y; r++) {
-                s[x][r].setBackground(Color.BLACK);
+                switch (opcionColor) {
+                    case 1:
+                        s[x][r].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[x][r].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[x][r].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[x][r].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[x][r].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[x][r].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[x][r].setBackground(Color.WHITE);
+                        break;
+                }
             }
             for (t = r; t < tamaño + r; t++) {
-                s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+                switch (opcionColor) {
+                    case 1:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.WHITE);
+                        break;
+                }
             }
             conx = x;
             cony = y;
             cont = 0;
             do {
-                s[conx][cony].setBackground(Color.BLACK);
+                switch (opcionColor) {
+                    case 1:
+                        s[conx][cony].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[conx][cony].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[conx][cony].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[conx][cony].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[conx][cony].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[conx][cony].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[conx][cony].setBackground(Color.WHITE);
+                        break;
+                }
                 cont++;
                 conx++;
                 cony++;
             } while (cont <= tamaño - 1);
         } else if (opcion == 4) {
+            //Solo para obtener valores en la variable r.
             for (r = y; r < tamaño + y; r++) {
                 //s[x][r].setBackground(Color.BLACK);
             }
             //Abajo.
             for (t = r - 1; t < tamaño + r; t++) {
-                s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+                switch (opcionColor) {
+                    case 1:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[t - tamaño][y + (tamaño - 1)].setBackground(Color.WHITE);
+                        break;
+                }
             }
             for (u = y; u < tamaño + y; u++) {
-                s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
+                switch (opcionColor) {
+                    case 1:
+                        s[x + (tamaño - 1)][u].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[x + (tamaño - 1)][u].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[x + (tamaño - 1)][u].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[x + (tamaño - 1)][u].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[x + (tamaño - 1)][u].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[x + (tamaño - 1)][u].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[x + (tamaño - 1)][u].setBackground(Color.WHITE);
+                        break;
+                }
             }
             conx = x;
             cony = y + tamaño - 2;
             cont = 0;
             do {
-                s[conx][cony].setBackground(Color.BLACK);
+                switch (opcionColor) {
+                    case 1:
+                        s[conx][cony].setBackground(Color.BLACK);
+                        break;
+                    case 2:
+                        s[conx][cony].setBackground(Color.RED);
+                        break;
+                    case 3:
+                        s[conx][cony].setBackground(Color.GRAY);
+                        break;
+                    case 4:
+                        s[conx][cony].setBackground(Color.YELLOW);
+                        break;
+                    case 5:
+                        s[conx][cony].setBackground(Color.BLUE);
+                        break;
+                    case 6:
+                        s[conx][cony].setBackground(Color.GREEN);
+                        break;
+                    case 7:
+                        s[conx][cony].setBackground(Color.WHITE);
+                        break;
+                }
                 cont++;
                 conx++;
                 cony--;
             } while (cont <= tamaño - 1);
-        }
-    }
-
-    private void trianguloEquilatero() {
-        int opcion = Integer.parseInt(JOptionPane.showInputDialog("¿Que orientacion sera el triangulo:\n"
-                + "1.- Abajo.\n"
-                + "2.- Abajo izquierda.\n"
-                + "3.- Arriba derecha.\n"
-                + "4.- Arriba izquierda."));
-        int tamaño = Integer.parseInt(JOptionPane.showInputDialog("Dame el tamaño del triangulo:\n"
-                + "(El triangulo se pintara de izquierda a derecha y de arriba hacia abajo)."));
-        int x = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en x:"));
-        int y = Integer.parseInt(JOptionPane.showInputDialog("Dame la coordenada de inicio en y:"));
-
-        if (opcion == 1) {
-            for (int r = x; r < tamaño + x; r++) {
-                s[r][y].setBackground(Color.BLACK);
-            }
-            //Inversa.
-            int conx = x + tamaño, cony = y, cont = 2;
-            do {
-                s[conx][cony].setBackground(Color.BLACK);
-                cont++;
-                conx++;
-                cony++;
-            } while (cont <= tamaño - 1);
-            conx = 0;
-            cony = 0;
-            cont = 0;
-            conx = x;
-            cony = y - 1;
-            cont = 2;
-            do {
-                s[conx][cony].setBackground(Color.BLACK);
-                cont++;
-                conx++;
-                cony--;
-            } while (cont <= tamaño - 1);
-
         }
     }
 
