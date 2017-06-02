@@ -838,7 +838,7 @@ public class Tablero extends javax.swing.JFrame {
         //1 para no.
     }
 
-        private void rectangulo() {
+    private void rectangulo() {
         vaciarVariables();
         ancho = Integer.parseInt(JOptionPane.showInputDialog("Dame el largo del rectangulo:"));
         largo = Integer.parseInt(JOptionPane.showInputDialog("Dame el ancho del rectangulo:\n"
@@ -932,7 +932,7 @@ public class Tablero extends javax.swing.JFrame {
             }
         }
         //Derecha.
-        for (int u =  y; u < largo; u++) {
+        for (int u = y; u < largo; u++) {
             switch (opcion) {
                 case 1:
                     s[x + ancho][u].setBackground(Color.BLACK);
